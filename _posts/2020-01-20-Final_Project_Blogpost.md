@@ -26,7 +26,7 @@ I was forced to dive deep into the code of the function itself to find a solutio
 ![](chord.png)
 All of my values were smaller than 0.5, and yet the threshold assumed for the chord diagram was 0.5, which was why the matrix that resulted was always filled with only 0s. Changing the threshold to 0 resulted in the following interactive diagram, with SA2 in red and SA1 in blue:
 ![](/images/chorddiagram.png)
-(The diagram can also be viewed by downloading the following folder, navigating to the folder in the terminal, and creating your own python http server by typing `python3 -m http.server 8000`)
+(The diagram can also be viewed by downloading the visualization_Chordial folder found [here](https://github.com/krzalica/Final_Project), navigating to the folder in the terminal, and creating your own python http server by typing `python3 -m http.server 8000`)
 As well as a graph of the reduced values:
 ![](/images/graph.png)
 After using the same troubleshooting method for LDA, I realized that the function visualizeFeaturesFolder had a third positional argument, priorKnowledge, which the function used to define the classes. This was at odds with the official guide itself, which instead stated that with LDA, a supervised model, "the required labels are taken from the subcategories of the input files (if available). These are provided through the respective filenames, using the string `---` as a separator." (See the rest of the guide on data visualization with pyAudioAnalysis [here](https://github.com/tyiannak/pyAudioAnalysis/wiki/6.-Data-visualization)). PCA instead did what the guide stated LDA would do:
@@ -40,3 +40,5 @@ SA2:
 
 Thus it seems that, overall, SA1 and SA2, when spoken by someone from the South Midland dialect region (see diagram below for map of area, with orange being South Midland), are quite similar.
 ![](https://upload.wikimedia.org/wikipedia/commons/9/99/Midland_American_English_map.jpg)
+
+Code can be found [here](https://github.com/krzalica/Final_Project/blob/master/Final%20Project.ipynb)
