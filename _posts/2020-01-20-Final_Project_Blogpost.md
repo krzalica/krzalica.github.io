@@ -23,7 +23,7 @@ I decided to create a function called comparison(s1,s2) that takes in two senten
 Furthermore, interestingly enough, the dialect regions with the greatest number of errors were DR2 and DR4, with DR4 doing slightly worse when only SA2 sentence misclassifications were taken into account. As a result, I decided to create a chord diagram that would show me the similarities and differences between six SA1 and SA2 sentences spoken by the same DR4 dialect region people. Doing so, however, proved an arduously complex task. The function visualizeFeaturesFolder from audioVisualization was supposed to take in a path to a folder containing all the data and a dimensionality reduction method, either PCA or LDA. Running PCA, I received a matrix of only 0s, , while running LDA gave me the following error:
 ![](/images/errorLDA.png)
 I was forced to dive deep into the code of the function itself to find a solution. I decided to copy and paste the code into jupyter notebook, to allow me ease of access, typing, and testing. Then, I systematically commented out blocks of code with the PCA option until I found the single line that had been my bane:
-![](chord.png)
+![](/images/chord.png)
 All of my values were smaller than 0.5, and yet the threshold assumed for the chord diagram was 0.5, which was why the matrix that resulted was always filled with only 0s. Changing the threshold to 0 resulted in the following interactive diagram, with SA2 in red and SA1 in blue:
 ![](/images/chorddiagram.png)
 (The diagram can also be viewed by downloading the visualization_Chordial folder found [here](https://github.com/krzalica/Final_Project), navigating to the folder in the terminal, and creating your own python http server by typing `python3 -m http.server 8000`)
@@ -36,9 +36,9 @@ I also created a spectrogram of one speaker from DR4 saying both SA1 and SA2 in 
 SA1:
 ![](/images/SA1_Spectrogram.png)
 SA2:
-![](/images/SA2_Spetrogram.png)
+![](/images/SA2_Spectrogram.png)
 
 Thus it seems that, overall, SA1 and SA2, when spoken by someone from the South Midland dialect region (see diagram below for map of area, with orange being South Midland), are quite similar.
 ![](https://upload.wikimedia.org/wikipedia/commons/9/99/Midland_American_English_map.jpg)
 
-Code can be found [here](https://github.com/krzalica/Final_Project/blob/master/Final%20Project.ipynb)
+Code can be found [here](https://github.com/krzalica/Final_Project/blob/master/Final%20Project.ipynb).
